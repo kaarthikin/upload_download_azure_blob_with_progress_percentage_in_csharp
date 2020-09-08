@@ -96,14 +96,15 @@ namespace UploadDownloadAzureBlobWithProgressSDK12
             return (currentSize / totalSize) * 100;
         }
 
-        private void UploadProgressChanged(object sender, long e)
+        private void UploadProgressChanged(object sender, long bytesUploaded)
         {
             //Calculate the progress and update the progress bar.
             //Note: the bytes uploaded published back to us is in long. In order to calculate the percentage, the value has to be converted to double. 
             //Auto type casting from long to double happens here as part of function call
-            progressBar.Tick((int)GetProgressPercentage(uploadFileSize, e),
-                $"Uploaded {ByteSize.FromBytes(e).MebiBytes:#.##} MB of {ByteSize.FromBytes(uploadFileSize).MebiBytes:#.##} MB");
+            progressBar.Tick((int)GetProgressPercentage(uploadFileSize, bytesUploaded),
+                $"Uploaded {ByteSize.FromBytes(bytesUploaded).MebiBytes:#.##} MB of {ByteSize.FromBytes(uploadFileSize).MebiBytes:#.##} MB");
         }
+
 
         static void PrintLine()
         {
