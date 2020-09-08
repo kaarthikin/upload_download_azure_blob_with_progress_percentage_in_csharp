@@ -65,8 +65,8 @@ namespace UploadDownloadAzureBlobWithProgressSDK12
             var blobToDownload = new BlobClient(connectionString, containerName, blobPath).Download().Value;
             var outputFile = File.OpenWrite(pathToDownload);
 
-            //Set the downloadBuffer size to same as file size. By this way file can be downloaded soon based on you available internet bandwidth.
-            var downloadBuffer = new byte[blobToDownload.ContentLength];
+            //Choose an appropriate buffer size
+            var downloadBuffer = new byte[81920];
             int bytesRead;
             int totalBytesDownloaded=0;
             
@@ -98,7 +98,7 @@ namespace UploadDownloadAzureBlobWithProgressSDK12
 
         private void UploadProgressChanged(object sender, long e)
         {
-            //Calcaulte the progress and update the progress bar.
+            //Calculate the progress and update the progress bar.
             //Note: the bytes uploaded published back to us is in long. In order to calculate the percentage, the value has to be converted to double. 
             //Auto type casting from long to double happens here as part of function call
             progressBar.Tick((int)GetProgressPercentage(uploadFileSize, e),
@@ -141,8 +141,8 @@ namespace UploadDownloadAzureBlobWithProgressSDK12
             DisplayHeader();
 
             BlobStorageService blobStorageService = new BlobStorageService("AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;DefaultEndpointsProtocol=http;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;");
-            blobStorageService.UploadBlob("c:\\temp\\upload.img");
-            blobStorageService.DownloadBlob("upload.img", "c:\\temp\\download.img");
+            blobStorageService.UploadBlob("C:\\Temp\\upload.msi");
+            blobStorageService.DownloadBlob("upload.msi", "c:\\temp\\download_upload.msi");
 
             Console.ReadLine();
         }
