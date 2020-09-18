@@ -2,7 +2,7 @@
 
 ## Preview:
 
-![Image](https://github.com/kaarthikin/upload_download_azure_blob_with_progress_percentage_in_csharp/UploadDownloadFileFromAzureBlobStorageWithProgressPercentage.gif)
+![Image](https://github.com/kaarthikin/upload_download_azure_blob_with_progress_percentage_in_csharp/blob/master/UploadDownloadFileFromAzureBlobStorageWithProgressPercentage.gif)
 
 Refer the link https://www.craftedforeveryone.com/upload-or-download-file-from-azure-blob-storage-with-progress-percentage-csharp/ for detailed guide on uploading and downloading files with progress percentage.
 
